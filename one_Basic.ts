@@ -173,7 +173,7 @@ interface sayhi {
 const say: sayhi = (world) => {
   return world;
 };
-// tsc init --> 生成tsconfig.json，变成一个ts的工程项目
+// tsc --init --> 生成tsconfig.json，变成一个ts的工程项目
 // interface只是帮助我们做语法校验的工具，在ts编译为js文件时，interface会被全部剔除
 
 // 类的定义与继承
