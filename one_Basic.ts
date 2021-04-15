@@ -62,10 +62,10 @@ let countInference = 123;
 function hello() {}
 const hello1 = function () {};
 const hello2 = () => {};
-function add(first: number, second: number): number {
+function add0(first: number, second: number): number {
   return first + second;
 }
-const total2 = add(1, 2);
+const total2 = add0(1, 2);
 function sayHello(): void {
   // void类型代表函数没有返回值
   console.log('hello');
@@ -108,6 +108,10 @@ type User = { name: string; age: number };
 class Teacher {
   name: string;
   age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age
+  }
 }
 // class类和{}可以一起使用
 const arr2: Teacher[] = [
@@ -115,7 +119,7 @@ const arr2: Teacher[] = [
     name: 'dtt',
     age: 20,
   },
-  new Teacher(),
+  new Teacher('dtt', 10),
 ];
 // 元组的定义：[]的长度和数组每一项类型确定
 const teacherInfo: [string, number, string] = ['1', 2, '3'];
@@ -256,6 +260,9 @@ const demo3 = Demo.getInstance();
 // 抽象类 只能被继承，不能被实例化 把class公用的东西抽离出来
 abstract class Geom {
   width: number;
+  constructor(width: number) {
+    this.width = width
+  }
   getType() {
     return 'Geom';
   }

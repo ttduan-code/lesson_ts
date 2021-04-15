@@ -39,7 +39,11 @@ function add(first: number | string, second: number | string) {
 // 用instanceof做类型保护
 class NumberObj {
   count: number;
+  constructor(count: number) {
+    this.count = count
+  }
 }
+
 function add2(first: object | NumberObj, second: object | NumberObj) {
   if (first instanceof NumberObj && second instanceof NumberObj) {
     return first.count + second.count;
@@ -64,7 +68,7 @@ enum Status {
 //   ONLINE: 1,
 //   DELETED: 2
 // }
-function getResult(status) {
+function getResult(status: number) {
   if (status === Status.OFFLINE) {
     return 'OFFLINE';
   } else if (status === Status.ONLINE) {
@@ -101,3 +105,5 @@ const data = new Join3<string>(['1']);
 
 // namespace-命名空间
 // 减少全局变量，提供类似模块化思想，把一组东西整合到一块，对外提供统一的接口
+
+//
