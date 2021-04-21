@@ -106,4 +106,32 @@ const data = new Join3<string>(['1']);
 // namespace-命名空间
 // 减少全局变量，提供类似模块化思想，把一组东西整合到一块，对外提供统一的接口
 
-//
+// 使用parcel打包ts代码  -- parcel类似webpack,是一个打包工具，但是它不用进行配置
+
+// 描述文件中的全局类型
+// 类型定义文件 .d.ts  帮助ts理解js库内容
+// 定义全局变量和全局函数
+// declare var $: (param: () => void) => void
+// declare function $(selector: string): { html: (html: string) => {}}
+
+// 泛型中keyof语法的使用
+interface Person {
+  name: string;
+  age: number;
+  gender: string;
+}
+
+class Teacher1 {
+  constructor(private info: Person) {}
+  getInfo<T extends keyof Person>(key: T): Person[T] {
+    return this.info[key]
+  }
+}
+
+const teacher2 = new Teacher1({
+  name: 'dtt',
+  age: 20,
+  gender: 'female'
+})
+const info = teacher2.getInfo('name')
+console.log(info)
